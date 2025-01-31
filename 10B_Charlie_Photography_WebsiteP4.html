@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charlie Studios - Page 3</title>
+    <style>
+        /* General styles */
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* Top white bar */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+            font-size: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .top-bar a {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-bar a:hover {
+            color: #000;
+        }
+
+        .camera-icon {
+            font-size: 16px; /* Smaller font size */
+            margin-left: 5px;
+        }
+
+        /* Landscape image slot */
+        .image-section {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/d7/Black_and_white_Spot_deer.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Dark overlay for better text contrast */
+        .image-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Adjust opacity for darkness */
+            z-index: 1;
+        }
+
+        /* Overlapping text */
+        .image-section .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .overlay-text h1 {
+            font-size: 48px;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        /* Button styling for the Home and Page Three buttons */
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .button-container .btn {
+            padding: 10px 20px;
+            border: 1px solid #fff;
+            font-size: 16px;
+            font-weight: 500;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .button-container .btn:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* Left-oriented description section */
+        .description-section {
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .description-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .description-section p {
+            line-height: 1.6;
+        }
+
+        /* Featured photographers section */
+        .modern-media-section {
+            padding: 40px 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .modern-media-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .modern-media-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* Card-style display for techniques */
+        .technique-card {
+            width: 100%;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .technique-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+            color: #333;
+        }
+
+        .technique-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Video styling for the technique cards */
+        .technique-card iframe {
+            width: 60%; /* Smaller video */
+            height: 315px; /* Fixed height */
+            margin: 0 auto; /* Centering the video */
+            border-radius: 8px;
+            display: block;
+        }
+
+        /* Styles for the flip card */
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 400px;
+            perspective: 1000px;
+            margin: 20px auto;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 8px;
+        }
+
+        .flip-card-front {
+            background-color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flip-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the space proportionally */
+            border-radius: 5px;
+        }
+
+        .flip-card-back {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-back p {
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div>Charlie Studios</div>
+    </div>
+
+    <!-- Landscape Image Section -->
+    <div class="image-section">
+        <div class="overlay-text">
+            <h1>Gallery</h1>
+            <div class="button-container">
+                <a href="10B_Charlie_Photography_WebsiteP3.html" class="btn">Page 3</a>
+                <a href="10B_Charlie_Photography_WebsiteP5.html" class="btn">Page 5</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flip Card Gallery Section -->
+    <div class="interactive-gallery-section" style="padding: 40px 20px; background-color: #fff; text-align: center;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 20px; color: #333;">Interactive Gallery</h2>
+        <p style="font-size: 18px; line-height: 1.6; color: #666; margin-bottom: 30px;">Click on the artwork cards to flip and view more details.</p>
+
+        <div class="gallery-container" style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; align-items: center;">
+
+            <!-- Flip Card Item 1 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://www.artnet.com/WebServices/images/ll305699llg07pCfDrCWBHBAD/alberto-korda-guerrillero-heroico-(cropped).jpg" alt="Artwork 1">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Guerrillero Heroico is an iconic photograph of Marxist revolutionary Che Guevara taken by Alberto Korda. It was captured on March 5, 1960, in Havana, Cuba, at a memorial service for victims of the La Coubre explosion.
+</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flip Card Item 2 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://photographyproject.uk/wp-content/uploads/2022/01/23-2103-post/Nagasakibomb.jpg" alt="Artwork 2">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>The photo of the mushroom cloud rising over Nagasaki is one of the most iconic images of the 20th century. It was taken by Lieutenant Charles Levy, a Navy pilot.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flip Card Item 3 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://photographyproject.uk/wp-content/uploads/2022/01/23-2103-post/moonlanding.jpg" alt="Artwork 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>A Man on the Moon. Taken by Neil Armstrong on June 20th, 1969, A Man on the Moon showcases astronaut Buzz Aldrin as he takes some of his first steps across the moon.</p>
+                    </div>
+                </div>
+            </div>
+			
+			  <!-- Flip Card Item 3 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/0/05/The_Falling_Man.jpg " alt="Artwork 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>The Falling Man is a photograph taken by Associated Press photographer Richard Drew of a man falling from the World Trade Center during the September 11 attacks in New York City.</p>
+                    </div>
+                </div>
+            </div>
+			
+			  <!-- Flip Card Item 3 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://1.bp.blogspot.com/-rHBjaTv7uME/Xcinlc7krwI/AAAAAAAASms/yefiucFRYiYvrFBF00Gl8yY8qH8BzWpggCLcBGAsYHQ/s1600/Times_Most_Influental_Images%2B%25285%2529.jpg" alt="Artwork 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Tank Man by Jeff Widener. Tank Man, which was taken in 1989, is the symbol of one student's rebellion against the suppression of the Chinese army. </p>
+                    </div>
+                </div>
+            </div>
+			
+			  <!-- Flip Card Item 3 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src=" https://img.buzzfeed.com/buzzfeed-static/static/2015-10/19/16/enhanced/webdr07/original-5968-1445286024-3.jpg?downsize=600:*&output-format=auto&output-quality=auto" alt="Artwork 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Taken on the island of Iwo Jima, Japan, U.S. Marines and a United States Navy hospital corpsman, raise a U.S. flag atop Mount Suribachi. These men fought alongside more than 70,000 Marines, sailors, and airmen on Iwo Jima, a tiny eight-square-mile speck of volcanic rock and sand.</p>
+                    </div>
+                </div>
+            </div>
+			
+			  <!-- Flip Card Item 3 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src=" https://img.buzzfeed.com/buzzfeed-static/static/2015-10/21/17/enhanced/webdr08/original-20116-1445463373-3.jpg?downsize=600:*&output-format=auto&output-quality=auto" alt="Artwork 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>An American sailor passionately kisses a nurse as thousands jam into Times Square to celebrate the long-awaited victory over Japan in World War II.</p>
+                    </div>
+                </div>
+            </div>
+			
+			  <!-- Flip Card Item 3 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://www.cnn.com/interactive/2021/09/us/9-11-photos-cnnphotos/media/images/s_A0AE79177AE22FEDB3174BE4CB5E6C1B34787C78A411A18BEEE28632C821036C_1631118381553_19.jpg" alt="Artwork 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>The September 11 attacks, commonly known as 9/11, were four coordinated Islamist terrorist suicide attacks carried out by al-Qaeda against the United States in 2001.</p>
+                    </div>
+                </div>
+            </div>
+			
+			  <!-- Flip Card Item 3 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src=" https://img.buzzfeed.com/buzzfeed-static/static/2015-10/19/17/enhanced/webdr12/original-29622-1445288681-3.jpg?downsize=600:*&output-format=auto&output-quality=auto " alt="Artwork 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Extending gloved hands skyward in racial protest, U.S. athletes Tommie Smith and John Carlos stare downward during the playing of "The Star-Spangled Banner" after Smith received the gold and Carlos the bronze for the 200-meter run at the Summer Olympic Games in Mexico City.</p>
+                    </div>
+                </div>
+            </div>
+			
+			  <!-- Flip Card Item 3 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src=" https://img.buzzfeed.com/buzzfeed-static/static/2015-10/19/17/enhanced/webdr14/original-11949-1445288724-16.jpg?downsize=600:*&output-format=auto&output-quality=auto" alt="Artwork 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Taken by Apollo 8 crew member Bill Anders while in orbit around the moon, this picture shows Earth rising above the lunar horizon.</p>
+                    </div>
+                </div>
+            </div>
+			
+			  <!-- Flip Card Item 3 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://img.buzzfeed.com/buzzfeed-static/static/2015-10/21/14/enhanced/webdr07/original-15167-1445452606-3.jpg?downsize=600:*&output-format=auto&output-quality=auto" alt="Artwork 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>On Dec. 8, 1980, John Lennon was murdered by Mark David Chapman outside of his Upper West Side home. He was 40 years old. In Central Park, scores of people gathered to mourn the death of the music and cultural legend.</p>
+                    </div>
+                </div>
+            </div>
+			
+			 <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://img.buzzfeed.com/buzzfeed-static/static/2015-10/19/17/enhanced/webdr09/original-9298-1445290956-3.jpg?downsize=600:*&output-format=auto&output-quality=auto" alt="Artwork 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>President Bush's Chief of Staff Andy Card whispers into the ear of the president to give him word of the plane crashes into the World Trade Center, during a visit to the Emma E. Booker Elementary School in Sarasota, Florida.</p>
+                    </div>
+                </div>
+            </div>
+			
+			 <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://img.buzzfeed.com/buzzfeed-static/static/2015-10/23/22/enhanced/webdr15/original-22855-1445654741-3.jpg?downsize=600:*&output-format=auto&output-quality=auto " alt="Artwork 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Firefighters raise a U.S. flag at the site of the World Trade Center on September 11, 2001, as a sign of patriotism and perseverance in the face of evil.</p>
+                    </div>
+                </div>
+            </div>
+			
+			 <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src=" https://img.buzzfeed.com/buzzfeed-static/static/2015-10/21/16/enhanced/webdr05/original-19312-1445457971-3.jpg?downsize=600:*&output-format=auto&output-quality=auto" alt="Artwork 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>The Mars rover Spirit made this remarkable picture in 2005 from the Martian surface, revealing the sun dipping slowly below the distant lip of Gusev Crater.</p>
+                    </div>
+                </div>
+            </div>
+			
+			 <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src=" https://img.buzzfeed.com/buzzfeed-static/static/2015-10/21/17/enhanced/webdr09/original-11166-1445463842-20.jpg?downsize=600:*&output-format=auto&output-quality=auto" alt="Artwork 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Police officers with their guns drawn react to the second explosion down the street. The first explosion knocked down 78-year-old marathon runner Bill Iffrig at the finish line of the 117th Boston Marathon. The attack killed 3 people and injured an estimated 264 others.</p>
+                    </div>
+                </div>
+            </div>
+			
+			 <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://img.buzzfeed.com/buzzfeed-static/static/2015-10/21/16/enhanced/webdr12/original-481-1445460933-12.jpg?downsize=600:*&output-format=auto&output-quality=auto" alt="Artwork 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Same-sex marriage supporters rejoice outside the Supreme Court in Washington, D.C., after the high court ruled that same-sex couples have the right to marry in all 50 states.</p>
+                    </div>
+                </div>
+            </div>
+			
+			 <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://media.npr.org/assets/img/2023/03/17/gettyimages-1910429_custom-e75400fcb1867a403353fc3400a82a6973638452.jpg?s=1100&c=50&f=jpeg" alt="Artwork 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>The Iraq War also referred to as the Second Gulf War, was a prolonged conflict in Iraq lasting from 2003 to 2011.</p>
+                    </div>
+                </div>
+            </div>
+			
+			 <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://ccp-wagtail-bucket.s3.amazonaws.com/images/V_WORKS_Two_Nuns_1.width-3000.jpg" alt="Artwork 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>The People Power Revolution, also known as the EDSA Revolution or the February Revolution, were a series of popular demonstrations in the Philippines.</p>
+                    </div>
+                </div>
+            </div>
+			
+			 <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://www.bworldonline.com/wp-content/uploads/2022/07/Ninoy.jpg" alt="Artwork 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Benigno "Ninoy" Aquino Jr., a former Philippine senator, was assassinated on Sunday, August 21, 1983, on the apron of Manila International Airport (now named Ninoy Aquino International Airport in his honor).</p>
+                    </div>
+                </div>
+            </div>
+			
+			 <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://cdn.britannica.com/81/71381-050-0042470B/battleship-attack-Pearl-Harbor-Japanese-Hawaii-December-7-1941.jpg" alt="Artwork 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Pearl Harbor is a naval base in Hawaii and the site of a surprise attack by Japan on December 7, 1941. The attack drew the United States into World War II. </p>
+                    </div>
+                </div>
+            </div>
+			
+			 <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://shotkit.com/wp-content/uploads/2020/07/famousphoto016.jpg" alt="Artwork 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>The Hindenburg disaster was an airship accident that occurred on May 6, 1937, in Lakehurst, New Jersey, United States. </p>
+                    </div>
+                </div>
+            </div>
+			
+			
+			<div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://preview.redd.it/kxe2qjggw3a81.png?width=984&format=png&auto=webp&s=ca4fbe0e8f727a9244c2311f49303e71efb3a51c" alt="Artwork 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>A gas chamber is an apparatus for killing humans or animals with gas, consisting of a sealed chamber into which a poisonous or asphyxiant gas is introduced. </p>
+                    </div>
+                </div>
+            </div>
+			
+			<div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="http://static.demilked.com/wp-content/uploads/2014/01/must-see-powerful-photos-3.jpg" alt="Artwork 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Heart surgeon after 23-hour-long (successful) heart transplant. His assistant is sleeping in the corner.</p>
+                    </div>
+                </div>
+            </div>
+			
+			<div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="http://static.demilked.com/wp-content/uploads/2014/01/must-see-powerful-photos-6.jpg" alt="Artwork 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>A Russian soldier playing an abandoned piano in Chechnya in 1994.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

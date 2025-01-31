@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charlie Studios</title>
+    <style>
+        /* General styles */
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* Top white bar */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+            font-size: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .top-bar a {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-bar a:hover {
+            color: #000;
+        }
+
+        .camera-icon {
+            font-size: 16px; /* Smaller font size */
+            margin-left: 5px;
+        }
+
+        /* Landscape image slot */
+        .image-section {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/4d/Rabbit_in_black_and_white.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Dark overlay for better text contrast */
+        .image-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Adjust opacity for darkness */
+            z-index: 1;
+        }
+
+        /* Overlapping text */
+        .image-section .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .overlay-text h1 {
+            font-size: 48px;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        /* Button styling for the Home and Page Three buttons */
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .button-container .btn {
+            padding: 10px 20px;
+            border: 1px solid #fff;
+            font-size: 16px;
+            font-weight: 500;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .button-container .btn:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* Left-oriented description section */
+        .description-section {
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .description-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .description-section p {
+            line-height: 1.6;
+        }
+
+        /* Filipino Photographers Section */
+        .photographers-section {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .photographers-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .photographers-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* Row of 4 square images */
+        .image-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            gap: 10px;
+            flex-wrap: wrap; /* Ensure that images align properly */
+        }
+
+        .image-box {
+            width: 23%;
+            height: 0;
+            padding-bottom: 23%; /* Make images square */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            filter: grayscale(100%);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .image-box:hover {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        .image-box span {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px;
+        }
+
+        /* Biography Cards */
+        .bio-card {
+            width: 100%;
+            padding: 20px;
+            margin: 10px 0;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .bio-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .bio-card .bio-text {
+            flex: 1;
+        }
+
+        .bio-card .bio-text h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .bio-card .bio-text p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div>Charlie Studios</div>
+    </div>
+
+    <!-- Landscape Image Section -->
+    <div class="image-section">
+        <div class="overlay-text">
+            <h1>Famous Photographers & Artists</h1>
+            <div class="button-container">
+                <a href="10B_Charlie_Photography_Website.html" class="btn">Home Page</a>
+                <a href="10B_Charlie_Photography_WebsiteP3.html" class="btn">Page 3</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Filipino Photographers Section -->
+    <div class="photographers-section">
+        <h2>Filipino Photographers</h2>
+        <p>Explore the works of some of the most renowned Filipino photographers who have captured moments that transcend borders, cultures, and time.</p>
+    </div>
+
+    <!-- Photographer Biographies (Filipino) -->
+    <div class="bio-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Xyza_Cruz_Bacani_-Professional_Photographer-_%28cropped%29.jpg" alt="Xyza Cruz Bacani">
+        <div class="bio-text">
+            <h3>Xyza Cruz Bacani</h3>
+            <p>Xyza Cruz Bacani is a Filipina photographer known for her work documenting migrant workers and human rights issues. She was named one of Time Magazine's '100 Most Influential People' in 2018.</p>
+        </div>
+    </div>
+
+    <div class="bio-card">
+        <img src="https://primer.com.ph/tips-guides/wp-content/uploads/sites/5/2017/01/Bj-Pascual_2_CNNPH.png" alt="BJ Pascual">
+        <div class="bio-text">
+            <h3>BJ Pascual</h3>
+            <p>BJ Pascual is a renowned Filipino photographer known for his portraits and celebrity photography. He has worked with top fashion magazines and global brands, making him one of the Philippines' leading photographers.</p>
+        </div>
+    </div>
+
+    <div class="bio-card">
+        <img src="https://pulitzercenter.org/sites/default/files/pictures/picture-239942-1539181159.jpg" alt="Eloisa Lopez">
+        <div class="bio-text">
+            <h3>Eloisa Lopez</h3>
+            <p>Eloisa Lopez is an award-winning photojournalist whose work focuses on conflict, human rights, and social justice. Her photography has been published internationally, and she has covered major news events around the world.</p>
+        </div>
+    </div>
+
+    <div class="bio-card">
+        <img src="https://cdn.tatlerasia.com/tatlerasia/i/2024/11/03210823-094a4202_cover_1600x1067.jpg" alt="Mark Nicdao">
+        <div class="bio-text">
+            <h3>Mark Nicdao</h3>
+            <p>Mark Nicdao is a Filipino photographer renowned for his high-fashion work and celebrity portraits. He is recognized for his artistic vision and his contributions to both local and international fashion photography.</p>
+        </div>
+    </div>
+
+    <!-- Worldwide Photographers Section -->
+    <div class="photographers-section">
+        <h2>Worldwide Photographers</h2>
+        <p>Explore the works of some of the most renowned global photographers.</p>
+    </div>
+
+    <!-- Photographer Biographies (Worldwide) -->
+    <div class="bio-card">
+        <img src="https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcRe2YrSSMrBEOCfUgmsJBkWDDFuXhBq_ACpchPyVKbi7uNqNb1gT7CTk6CDv-WstSVh" alt="Ansel Adams">
+        <div class="bio-text">
+            <h3>Ansel Adams</h3>
+            <p>Ansel Adams was an American photographer and environmentalist known for his black-and-white images of the American West. His work is iconic for its sharp details and grandeur.</p>
+        </div>
+    </div>
+
+    <div class="bio-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Portrait_of_Henri_Cartier-Bresson_-_Paris_-_1954_-_Kimura_Ihei.png/640px-Portrait_of_Henri_Cartier-Bresson_-_Paris_-_1954_-_Kimura_Ihei.png" alt="Henri Cartier-Bresson">
+        <div class="bio-text">
+            <h3>Henri Cartier-Bresson</h3>
+            <p>Henri Cartier-Bresson was a French photographer considered one of the greatest masters of the art. His candid photography captured the 'decisive moment' of life in action, shaping modern photojournalism.</p>
+        </div>
+    </div>
+
+    <div class="bio-card">
+        <img src="https://www.photo-montier.org/wp-content/uploads/2022/08/BIO-10543NF-683x1024.jpg" alt="Steve McCurry">
+        <div class="bio-text">
+            <h3>Steve McCurry</h3>
+            <p>Steve McCurry is an American photographer best known for his photograph 'Afghan Girl', which appeared on the cover of National Geographic. His photojournalism has brought global attention to the plight of refugees.</p>
+        </div>
+    </div>
+
+    <div class="bio-card">
+        <img src="https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcSY9_gtvj7ElZOGXo5L9At5N4Hd3RJzxUHgDD3lZRimSmb_my85todUhXaN5viFyX5a" alt="Richard Avedon">
+        <div class="bio-text">
+            <h3>Richard Avedon</h3>
+            <p>Richard Avedon was an American fashion and portrait photographer. His work revolutionized fashion photography with his innovative use of white backgrounds and candid portraits of famous personalities.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charlie Studios - Page 3</title>
+    <style>
+        /* General styles */
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* Top white bar */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+            font-size: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .top-bar a {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-bar a:hover {
+            color: #000;
+        }
+
+        .camera-icon {
+            font-size: 16px; /* Smaller font size */
+            margin-left: 5px;
+        }
+
+        /* Landscape image slot */
+        .image-section {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/d1/Storm_Clouds_Black_White_%28Unsplash%29.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Dark overlay for better text contrast */
+        .image-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Adjust opacity for darkness */
+            z-index: 1;
+        }
+
+        /* Overlapping text */
+        .image-section .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .overlay-text h1 {
+            font-size: 48px;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        /* Button styling for the Home and Page Three buttons */
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .button-container .btn {
+            padding: 10px 20px;
+            border: 1px solid #fff;
+            font-size: 16px;
+            font-weight: 500;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .button-container .btn:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* Left-oriented description section */
+        .description-section {
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .description-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .description-section p {
+            line-height: 1.6;
+        }
+
+        /* Featured photographers section */
+        .modern-media-section {
+            padding: 40px 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .modern-media-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .modern-media-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* Card-style display for techniques */
+        .technique-card {
+            width: 100%;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .technique-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+            color: #333;
+        }
+
+        .technique-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Video styling for the technique cards */
+        .technique-card iframe {
+            width: 60%; /* Smaller video */
+            height: 315px; /* Fixed height */
+            margin: 0 auto; /* Centering the video */
+            border-radius: 8px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div>Charlie Studios</div>
+    </div>
+
+    <!-- Landscape Image Section -->
+    <div class="image-section">
+        <div class="overlay-text">
+            <h1>Modern Media-Based Art Techniques</h1>
+            <div class="button-container">
+                <a href="10B_Charlie_Photography_WebsiteP2.html" class="btn">Page 2</a>
+                <a href="10B_Charlie_Photography_WebsiteP4.html" class="btn">Page 4</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modern Media-Based Art Techniques Section -->
+    <div class="modern-media-section">
+        <h2>Modern Media-Based Art Techniques</h2>
+        <p>Modern media-based art techniques encompass a wide range of innovative approaches that blend traditional artistic practices with cutting-edge technology. These techniques have revolutionized the art world, creating immersive experiences that engage and inspire viewers in new and exciting ways. From digital tools to virtual experiences, these mediums are redefining how we perceive and interact with art.</p>
+
+        <div class="technique-card">
+            <iframe src="https://www.youtube.com/embed/fJvcllrOrr4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h3>Digital Painting</h3>
+            <p>Digital painting involves creating artwork using digital tools like graphic tablets and software such as Photoshop or Procreate. This technique allows artists to replicate traditional media such as oil painting, watercolor, or pencil drawing, or experiment with unique, computer-generated styles. Digital painting offers limitless possibilities for creativity, enabling artists to blend colors, textures, and effects in ways that would be difficult or impossible to achieve with traditional methods. Artists can easily make adjustments, undo mistakes, and explore various compositions and palettes, making it a versatile and efficient medium. Digital painting has become a staple in modern media-based art, widely used for concept art, character design, and visual storytelling in video games and animation.</p>
+        </div>
+
+        <div class="technique-card">
+            <iframe src="https://www.youtube.com/embed/EqU7kZPb5nk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h3>Film</h3>
+            <p>Film art has evolved significantly over the years, blending traditional techniques with cutting-edge technology to create visual masterpieces. Filmmakers employ a variety of techniques such as cinematography, editing, sound design, and special effects to bring stories to life on the screen. The medium has expanded beyond movies, influencing other art forms and digital platforms, shaping how we experience stories in modern society. The immersive nature of film allows it to create emotional connections with the audience, making it one of the most powerful forms of modern media-based art.</p>
+        </div>
+
+        <div class="technique-card">
+            <iframe src="https://www.youtube.com/embed/T0_rjPz-w_s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h3>Augmented and Virtual Reality</h3>
+            <p>Augmented Reality (AR) and Virtual Reality (VR) open up entirely new worlds for artists and audiences alike. AR blends digital elements with the real world, enhancing the viewer's perception of their surroundings through devices like smartphones, tablets, or AR glasses. In contrast, VR immerses the viewer in fully digital environments, creating a sense of being present in a completely different space. These technologies provide rich opportunities for interactive and experiential art forms. In AR, artists can create interactive sculptures or digital overlays that blend seamlessly with the physical world, while VR offers fully immersive storytelling, 3D landscapes, and interactive characters. Artists using these media can transport their audience to fantastical worlds, allowing them to experience art in ways that traditional mediums cannot.</p>
+        </div>
+
+        <div class="technique-card">
+            <iframe src="https://www.youtube.com/embed/wnUg7ZD1VU0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h3>Photography</h3>
+            <p>Photography as an art form continues to evolve with technology, capturing moments, emotions, and stories in an instant. The accessibility of digital cameras, smartphones, and editing software has made photography an ever-present medium in the world of modern media-based art. Photographers utilize composition, lighting, and perspective to convey messages and evoke feelings. From street photography to digital manipulation, the versatility of photography allows artists to explore new narratives and styles, making it a prominent medium in contemporary art.</p>
+        </div>
+    </div>
+</body>
+</html>
