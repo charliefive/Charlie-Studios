@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography</title>
+    <style>
+        /* General styles */
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* Top white bar */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+            font-size: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .top-bar a {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-bar a:hover {
+            color: #000;
+        }
+
+        .camera-icon {
+            font-size: 16px; /* Smaller font size */
+            margin-left: 5px;
+        }
+
+        /* Landscape image slot */
+        .image-section {
+            position: relative;
+            width: 100%;
+            height: 70vh; /* Adjustable height for the image slot */
+            background-image: url('https://i0.wp.com/cuchara.photography/wp-content/uploads/2022/04/js_20201128_09665-enhanced-hdr-bwv.jpg?fit=2560%2C2048&amp;ssl=1');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Dark overlay for better text contrast */
+        .image-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Adjust opacity for darkness */
+            z-index: 1;
+        }
+
+        /* Overlapping text */
+        .image-section .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-align: center;
+            z-index: 2; /* Ensure text is above the overlay */
+        }
+
+        .overlay-text h1 {
+            font-size: 48px;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        /* See More box */
+        .see-more {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: 1px solid #fff;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 500;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .see-more:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* Left-oriented section below the image */
+        .description-section {
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        .description-section h2 {
+            font-size: 28px;
+            font-weight: 700; /* Thicker font for the title */
+            margin-bottom: 10px;
+        }
+
+        .description-section p {
+            line-height: 1.6;
+        }
+
+        /* Row of 4 square images */
+        .image-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            gap: 10px;
+        }
+
+        .image-box {
+            width: 23%; /* Adjust width to fit 4 images in a row */
+            height: 0;
+            padding-bottom: 23%; /* Make images square */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            filter: grayscale(100%); /* Black and white effect */
+        }
+
+        .image-box span {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px;
+        }
+		
+		/* Biography Cards */
+        .bio-card {
+            width: 100%;
+            padding: 20px;
+            margin: 10px 0;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .bio-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .bio-card .bio-text {
+            flex: 1;
+        }
+
+        .bio-card .bio-text h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .bio-card .bio-text p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div>Charlie Studios</div>
+    </div>
+
+    <!-- Landscape Image Section -->
+    <div class="image-section">
+        <div class="overlay-text">
+            <h1>Conclusion</h1>
+	        <a href="10B_Charlie_Photography_WebsiteP4.html" class="see-more">Page 4</a>
+            <a href="index.html" class="see-more">Home Page</a>
+        </div>
+    </div>
+	
+	 <div class="description-section">
+        <h2>Photography</h2>
+		<p>Photography is a powerful tool that captures moments, emotions, and memories, allowing us to preserve fleeting instances in time. Through a single photograph, we can relive precious memories, whether it's a family gathering, a special trip, or an important milestone in life. In many ways, photography acts as a visual diary, documenting the evolution of our lives and the world around us. It not only preserves memories but also offers an opportunity to communicate ideas and emotions without the need for words. A photograph can tell a story, evoke feelings, and even capture the beauty and complexity of everyday life, making it an invaluable form of expression.</p>
+
+        <p>Beyond personal preservation, photography holds significant cultural and historical importance. It serves as a record of history, documenting significant events, movements, and moments that shape societies. Photos have the unique ability to influence public opinion, raise awareness, and inspire change, especially when it comes to journalism or activism. Whether capturing the essence of a cultural tradition or highlighting a global issue, photography has the power to unite people through shared experiences and perspectives. Ultimately, photography is more than just an art form—it is a way to connect with others, reflect on our past, and envision a better future.</p>
+    </div>
+    
+	<div class="description-section">
+	 <h2>We express our gratitude to you, from 10B Charlie.</h2>
+	 <ul class="members-list">
+            <li>Scion (Leader)</li>
+            <li>James</li>
+            <li>Mark</li>
+            <li>Erabela</li>
+            <li>Chareez</li>
+            <li>Blaise</li>
+        </ul>
+	</div>
+</html>
